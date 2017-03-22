@@ -1,13 +1,13 @@
-from flask_script import Manager
+from flask.ext.script import Manager
 
-#from myapp import app
+app = Flask(__name__)
 
 manager = Manager(app)
 
-@manager.commd
+@manager.command
 
 def hello():
-    print "Hello"
+    print "hello!"
 
 if __name__=="__main__":
     manager.run()
