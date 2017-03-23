@@ -10,7 +10,9 @@ def index():
 def about():
     return "<h1>this is about</h1>"
 
-
+@app.route('/mm')
+def mm():
+    return "<h1>this is mm</h1>"
 
 if __name__=="__main__":
     app.debug = True
