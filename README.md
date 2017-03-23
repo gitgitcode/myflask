@@ -194,20 +194,23 @@ Supervisor 的全局的配置文件位置在：
 
 /etc/supervisor/conf.d/
 下就可以，那么我们就新建立一个用于启动 my_flask 项目的 uwsgi 的 supervisor 配置 (命名为：my_flask_supervisor.conf)：
+```
 
-[program:my_flask]
-# 启动命令入口
-command=/home/www/my_flask/venv/bin/uwsgi /home/www/my_flask/config.ini
+    [program:myflask]
+    # 启动入口
+    command=/home/wwwroot/myflask/venv/bin/uwsgi /home/wwwroot/myflask/config.ini
 
-# 命令程序所在目录
-directory=/home/www/my_flask
-#运行命令的用户名
-user=root
-        
-autostart=true
-autorestart=true
-#日志地址
-stdout_logfile=/home/www/my_flask/logs/uwsgi_supervisor.log        
+    # 命令程序所在目录
+    directory=/home/wwwroot/myflask/
+    #运行命令的用户名
+    user=root
+            
+    autostart=true
+    autorestart=true
+    #日志地址
+    stdout_logfile=/home/wwwroot/myflask/logs/uwsgi_supervisor.log    
+```
+    
 启动服务
 
 sudo service supervisor start
