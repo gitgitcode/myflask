@@ -1,4 +1,4 @@
-#!/home/wwwroot/myflask/venv/bin/python
+#!/Users/chao/myflask/venv/bin/python
 
 import sys
 import getopt

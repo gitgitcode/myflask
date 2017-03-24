@@ -1,0 +1,26 @@
+{% extends "extends.html" %} {% include 'macros.html' %} {% block title %} Flask - Page User Name {% endblock %} {% block page_content %}
+<h1>helllllooooo, {{name|capitalize}}!</h1>
+
+<p>a value from a dictinoary : {{ mydict['key'] }} </p>
+
+
+{% if user%} hello, {{ user }}! {% else %} hello, stranger {% endif %}
+
+<ul>
+    {% for commnet in comments %}
+    <li>{{ comments[commnet] }}</li>
+    {% endfor %}
+</ul>
+
+
+{% import 'macros.html' as macros %}
+<!--<ul>
+     #for comment in comments
+     #render_comment(comment)  
+     #endfor 
+</ul>-->
+
+<ul>
+    {% for comment in comments %} {{ macros.render_comment(comment) }} {% endfor %}
+</ul>
+{% endblock %}

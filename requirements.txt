@@ -1,11 +1,11 @@
 Flask==0.12
 Flask-Login==0.4
 Flask-Mail==0.9.1
-Flask-Moment==0.4.0
+Flask-Moment==0.5.1
 Flask-PageDown==0.1.5
 Flask-SQLAlchemy==2.0
 Flask-Script==2.0.5
-Flask-WTF==0.10.2
+Flask-WTF==0.14.2
 Flask-Cache==0.13.1
 Flask-Restless==0.15.0
 Flask-Uploads==0.1.3
