@@ -8,6 +8,9 @@ from flask import abort
 
 from flask_script import Manager
 from flask_moment import Moment
+from flask_wtf import Form 
+from wtforms import StringField, SubmitField
+from wtforms.validators import Required
 
 
 # flask-bootstrap 
@@ -16,6 +19,7 @@ from flask_bootstrap import Bootstrap
 
 app = Flask(__name__)
 app.debug = True
+app.config['SECRET_KEY'] = 'aaaa11111'
 manager = Manager(app)
 bootstrap = Bootstrap(app)
 moment = Moment(app)
@@ -49,7 +53,7 @@ def index():
 
 @app.route('/template')
 def template():
-    return render_template('index.html', current_time = datetime.utcnow())
+    return render_template('index.html',  form = NameForm(), current_time = datetime.utcnow())
 
 @app.route('/about')
 def about():
@@ -58,7 +62,7 @@ def about():
 @app.route('/extends')
 def extends_page():
     url = url_for('username', name = 'john', _external =True )
-    return render_template('extends.html', url = url)
+    return render_template('extends.html', url = url, current_time = datetime.utcnow())
 @app.route('/mm')
 def mm():
     return "<h1>this is mm</h1>"
@@ -76,6 +80,17 @@ def response():
     response = make_response('<h1>This document carries a cookie!</h1>')
     response.set_cookie('answer','42')
     return response
+
+@app.route('/form')
+def myform():
+    return render_template('form.html', form = NameForm() ,current_time = datetime.utcnow())
+
+
+class NameForm(Form):
+    name = StringField('what is your name?', validators=[Required()])
+    submit = SubmitField('Submit')
+
+
 
 if __name__=="__main__":
     #app.run()

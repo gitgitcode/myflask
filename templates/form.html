@@ -1,0 +1,10 @@
+{% extends 'extends.html' %} {% block page_content %}
+
+<div>
+    <span>form</span>
+    <form action="" method="POST">
+        {{ form.hidden_tag() }} {{ form.name.label }} {{ form.name(id='my-text-field')}} {{ form.submit()}}
+    </form>
+</div>
+
+{% endblock %}
